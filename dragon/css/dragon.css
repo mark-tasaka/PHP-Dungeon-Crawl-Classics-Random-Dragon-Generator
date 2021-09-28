@@ -1,0 +1,23 @@
+
+body{
+	font-family: sans-serif;
+	font-size: 1.4em;
+}
+
+
+/* id rules
+--------------------*/
+#title{
+    width: 950px;
+    height: auto;
+	display: block;
+}
+
+
+#dragonType{
+    position:absolute;
+    top: 30px;
+    left: 40px;
+	font-size: 1.1em;
+    font-weight: bold;
+}
