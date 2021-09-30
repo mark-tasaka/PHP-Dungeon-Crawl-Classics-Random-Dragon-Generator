@@ -17,7 +17,41 @@ body{
 #dragonType{
     position:absolute;
     top: 70px;
-    left: 200px;
+    left: 180px;
 	font-size: 1.1em;
+    font-weight: bold;
+}
+
+#dragonAge{
+    position:absolute;
+    top: 235px;
+    left: 465px;
+	font-size: 0.8em;
+    font-weight: bold;
+}
+
+#dragonAttackTypes{
+    position:absolute;
+    top: 340px;
+    left: 45px;
+	font-size: 0.7em;
+    font-weight: bold;
+}
+
+
+#dragonHD{
+    position:absolute;
+    top: 627px;
+    left: 850px;
+	font-size: 0.9em;
+    font-weight: bold;
+}
+
+
+#dragonHitPoints{
+    position:absolute;
+    top: 560px;
+    left: 860px;
+	font-size: 1.2em;
     font-weight: bold;
 }

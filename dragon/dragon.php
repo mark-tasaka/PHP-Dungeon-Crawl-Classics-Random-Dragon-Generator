@@ -37,6 +37,18 @@ $dragonAppearance = dragonAppearance();
 
 $dragonAge = getDragonAge($dragonSize);
 
+$dragonAgeArray = array();
+$dragonAgeArray = getDragonAgeArray($dragonAge);
+
+$dragonAgeDesc = $dragonAgeArray[0];
+$dragonAgeYears = getDragonAgeNumber($dragonAge);
+
+$dragonAttackTypes = $dragonAgeArray[5];
+
+$dragonHD = getHitDice($dragonSize);
+
+$dragonHitPoints = getHitPoints ($dragonAge, $dragonHD);
+
 
 
 ?>
@@ -51,10 +63,48 @@ $dragonAge = getDragonAge($dragonSize);
 
 echo $theDragonSize . ' ' . $dragonAppearance . ' Dragon';
 
-
 ?>
 </span>
            
+   
+<span id="dragonAge">
+<?php
+
+echo $dragonAgeDesc . ' (' . $dragonAgeYears . ' years)';
+
+?>
+</span>
+
+
+<span id="dragonAttackTypes">
+<?php
+
+echo $dragonAttackTypes;
+
+?>
+</span>
+
+
+<span id="dragonHD">
+<?php
+
+echo $dragonHD . 'd12';
+
+?>
+</span>
+
+
+
+<span id="dragonHitPoints">
+<?php
+
+echo $dragonHitPoints;
+
+?>
+</span>
+
+
+
 
 
 <script>
