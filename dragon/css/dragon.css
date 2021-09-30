@@ -7,7 +7,7 @@ body{
 
 /* id rules
 --------------------*/
-#title{
+#sheet{
     width: 950px;
     height: auto;
 	display: block;
@@ -16,8 +16,8 @@ body{
 
 #dragonType{
     position:absolute;
-    top: 30px;
-    left: 40px;
+    top: 70px;
+    left: 200px;
 	font-size: 1.1em;
     font-weight: bold;
 }

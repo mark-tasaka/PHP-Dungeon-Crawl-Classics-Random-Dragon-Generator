@@ -35,13 +35,15 @@ if(isset($_POST["theDragonSize"]))
 $theDragonSize = dragonSize ($dragonSize);
 $dragonAppearance = dragonAppearance();
 
+$dragonAge = getDragonAge($dragonSize);
+
 
 
 ?>
 
 
 
-<img id="title"/>
+<img id="sheet"/>
 
    
 <span id="dragonType">
@@ -57,11 +59,10 @@ echo $theDragonSize . ' ' . $dragonAppearance . ' Dragon';
 
 <script>
       
-      /*
-  let imgData = "images/title.png";
+  let imgData = "images/dragon.png";
      
-       $("#title").attr("src", imgData);
-       */
+       $("#sheet").attr("src", imgData);
+       
      
 
  </script>
