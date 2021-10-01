@@ -218,4 +218,84 @@ function getHitPoints ($age, $hd)
     return $hitPoints;
 }
 
+function getArmourClass ($age, $hd)
+{
+    $age += 10;
+
+    $ac = $age + $hd;
+
+    return $ac;
+}
+
+
+function getSpeed($input)
+{
+    $number = (int)$input;
+
+    switch($number)
+    {
+        case 1:
+            return "30'/60'";
+            break;
+
+        case 2:
+            return "40'/80'";
+            break;
+
+        case 3:
+            return "50'/100'";
+            break;
+        
+        case 4:
+            return "60'/120'";
+            break;
+        
+        case 5:
+            return "80'/160'";
+            break;    
+
+        default:
+            return "99999999";
+
+    }
+
+}
+
+function getAttackBonus ($hd, $size)
+{
+    $number = (int)$size;
+
+    switch($number)
+    {
+        case 1:
+            $bonus = 1;
+            break;
+
+        case 2:
+            $bonus = rand(1, 3);
+            break;
+
+        case 3:
+            $bonus = rand(1, 4);
+            break;
+        
+        case 4:
+            $bonus = rand(1, 6);
+            break;
+        
+        case 5:
+            $bonus = rand(1, 8);
+            break;    
+
+        default:
+        $bonus = 99999;
+
+    }
+
+    $attackBonus = $hd + $bonus;
+
+    return $attackBonus;
+
+}
+
 ?>

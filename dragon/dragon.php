@@ -24,6 +24,7 @@
 <?php
 
 include 'php/dragonSelect.php';
+include 'php/dragonSpells.php';
 
 
 if(isset($_POST["theDragonSize"]))
@@ -43,12 +44,49 @@ $dragonAgeArray = getDragonAgeArray($dragonAge);
 $dragonAgeDesc = $dragonAgeArray[0];
 $dragonAgeYears = getDragonAgeNumber($dragonAge);
 
+$dragonDailyBreath = $dragonAgeArray[2];
+
 $dragonAttackTypes = $dragonAgeArray[5];
 
 $dragonHD = getHitDice($dragonSize);
 
 $dragonHitPoints = getHitPoints ($dragonAge, $dragonHD);
 
+$dragonAC = getArmourClass ($dragonAge, $dragonHD);
+
+$dragonSpeed = getSpeed($dragonSize);
+
+$dragonAttackBonus = getAttackBonus ($dragonHD, $dragonSize);
+
+$dragonFort = $dragonHD;
+$dragonWill = $dragonHD;
+$dragonRef = $dragonHD;
+
+$spellRoll = getSpellRoll($dragonAge);
+
+$spellArray = array();
+$spellArray = getSpellActionDice($spellRoll);
+
+$spellCheckLevel1 = $spellArray[0];
+$spellCheckLevel2 = $spellArray[1];
+$spellCheckLevel3 = $spellArray[2];
+
+$numberLevel1Spells = $spellArray[3];
+$numberLevel2Spells = $spellArray[4];
+$numberLevel3Spells = $spellArray[5];
+
+$spellLabelLevel1 = spellLevel1Label($numberLevel1Spells);
+$spellLabelLevel2 = spellLevel2Label($numberLevel2Spells);
+$spellLabelLevel3 = spellLevel3Label($numberLevel3Spells);
+
+$spellListLevel1 = array();
+$spellListLevel1 = getLevel1Spells($numberLevel1Spells);
+
+$spellListLevel2 = array();
+$spellListLevel2 = getLevel2Spells($numberLevel2Spells);
+
+$spellListLevel3 = array();
+$spellListLevel3 = getLevel3Spells($numberLevel3Spells);
 
 
 ?>
@@ -76,10 +114,153 @@ echo $dragonAgeDesc . ' (' . $dragonAgeYears . ' years)';
 </span>
 
 
+<span id="dragonAttackBonus">
+<?php
+
+echo '1d20+' . $dragonAttackBonus;
+
+?>
+</span>
+
+
 <span id="dragonAttackTypes">
 <?php
 
 echo $dragonAttackTypes;
+
+?>
+</span>
+
+
+<span id="spellLabelLevel1">
+<?php
+
+echo $spellLabelLevel1;
+
+?>
+</span>
+
+<span id="spellLabelLevel2">
+<?php
+
+echo $spellLabelLevel2;
+
+?>
+</span>
+
+
+<span id="spellLabelLevel3">
+<?php
+
+echo $spellLabelLevel3;
+
+?>
+</span>
+
+
+<span id="spellCheckLevel1">
+<?php
+
+echo $spellCheckLevel1;
+
+?>
+</span>
+
+<span id="spellCheckLevel2">
+<?php
+
+echo $spellCheckLevel2;
+
+?>
+</span>
+
+
+<span id="spellCheckLevel3">
+<?php
+
+echo $spellCheckLevel3;
+
+?>
+</span>
+
+
+<span id="spellListLevel1">
+<?php
+
+$count = $numberLevel1Spells;
+
+if($count != 0)
+{
+	
+	foreach($spellListLevel1 as $spell)
+	{
+		echo $spell;
+
+		if($count != 1)
+		{
+			echo ', ';
+		}
+
+		--$count;
+
+}
+
+}
+
+
+
+?>
+</span>
+
+
+<span id="spellListLevel2">
+<?php
+
+$count = $numberLevel2Spells;
+
+if($count != 0)
+{
+	
+	foreach($spellListLevel2 as $spell)
+	{
+		echo $spell;
+
+		if($count != 1)
+		{
+			echo ', ';
+		}
+
+		--$count;
+
+	}
+}
+
+
+?>
+</span>
+
+
+<span id="spellListLevel3">
+<?php
+
+$count = $numberLevel3Spells;
+
+if($count != 0)
+{
+		
+	foreach($spellListLevel3 as $spell)
+	{
+		echo $spell;
+
+		if($count != 1)
+		{
+			echo ', ';
+		}
+
+		--$count;
+
+	}
+}
 
 ?>
 </span>
@@ -105,7 +286,66 @@ echo $dragonHitPoints;
 
 
 
+<span id="dragonAC">
+<?php
 
+echo $dragonAC;
+
+?>
+</span>
+
+<span id="dragonFort">
+<?php
+
+echo '+' . $dragonFort;
+
+?>
+</span>
+
+
+<span id="dragonWill">
+<?php
+
+echo '+' . $dragonWill;
+
+?>
+</span>
+
+
+<span id="dragonRef">
+<?php
+
+echo '+' . $dragonRef;
+
+?>
+</span>
+
+
+<span id="dragonSpeed">
+<?php
+
+echo $dragonSpeed;
+
+?>
+</span>
+
+<span id="spellRoll">
+<?php
+
+echo $spellRoll;
+
+?>
+</span>
+
+
+
+<span id="dragonDailyBreath">
+<?php
+
+echo $dragonDailyBreath;
+
+?>
+</span>
 
 <script>
       
