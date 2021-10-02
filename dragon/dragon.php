@@ -25,6 +25,8 @@
 
 include 'php/dragonSelect.php';
 include 'php/dragonSpells.php';
+include 'php/dragonBreath.php';
+include 'php/dragonPowers.php';
 
 
 if(isset($_POST["theDragonSize"]))
@@ -35,6 +37,8 @@ if(isset($_POST["theDragonSize"]))
 
 $theDragonSize = dragonSize ($dragonSize);
 $dragonAppearance = dragonAppearance();
+
+$alignment = getDragonAlignment();
 
 $dragonAge = getDragonAge($dragonSize);
 
@@ -50,17 +54,47 @@ $dragonAttackTypes = $dragonAgeArray[5];
 
 $dragonHD = getHitDice($dragonSize);
 
+$martialPowerArrayNumber = array();
+$martialPowerArrayNumber = getMartialPowersNumbers($dragonHD);
+
+$martialACBonus = getACBonusMartial($martialPowerArrayNumber);
+$martialRefBonus = getReflexBonusMartial($martialPowerArrayNumber);
+$martialSecondBreathBonus = getAddBreathMartial($martialPowerArrayNumber);
+
+
 $dragonHitPoints = getHitPoints ($dragonAge, $dragonHD);
 
 $dragonAC = getArmourClass ($dragonAge, $dragonHD);
+
+$dragonAC += $martialACBonus;
 
 $dragonSpeed = getSpeed($dragonSize);
 
 $dragonAttackBonus = getAttackBonus ($dragonHD, $dragonSize);
 
+$dragonBreathArrayNumbers = array();
+$dragonBreathArrayNumbers = getDragonBreath();
+
+$dragonBreathNumber = $dragonBreathArrayNumbers[0];
+$dragonBreathArray = array();
+$dragonBreathArray = dragonBreath($dragonBreathNumber);
+$dragonBreathSave = getDragonSaveDC($dragonBreathNumber, $dragonHD);
+$dragonBreathDamage = getDragonBreathDamage($dragonBreathNumber, $dragonHitPoints);
+$dragonBreathMessage = getDragonBreathMessage($dragonBreathNumber);
+
+$dragonBreathNumber2 = $dragonBreathArrayNumbers[1];
+$dragonBreathArray2 = array();
+$dragonBreathArray2 = dragonBreath($dragonBreathNumber2);
+$dragonBreathSave2 = getDragonSaveDC($dragonBreathNumber2, $dragonHD);
+$dragonBreathDamage2 = getDragonBreathDamage($dragonBreathNumber2, $dragonHitPoints);
+$dragonBreathMessage2 = getDragonBreathMessage($dragonBreathNumber2);
+
+
 $dragonFort = $dragonHD;
 $dragonWill = $dragonHD;
 $dragonRef = $dragonHD;
+
+$dragonRef += $martialRefBonus;
 
 $spellRoll = getSpellRoll($dragonAge);
 
@@ -89,6 +123,7 @@ $spellListLevel3 = array();
 $spellListLevel3 = getLevel3Spells($numberLevel3Spells);
 
 
+
 ?>
 
 
@@ -100,6 +135,15 @@ $spellListLevel3 = getLevel3Spells($numberLevel3Spells);
 <?php
 
 echo $theDragonSize . ' ' . $dragonAppearance . ' Dragon';
+
+?>
+</span>
+
+
+<span id="alignment">
+<?php
+
+echo $alignment;
 
 ?>
 </span>
@@ -130,6 +174,32 @@ echo $dragonAttackTypes;
 
 ?>
 </span>
+
+
+<span id="dragonBreath">
+<?php
+
+echo 'Breath: ' . $dragonBreathArray[0] . ' &nbsp;&nbsp;&nbsp; Save: '. $dragonBreathSave .  $dragonBreathArray[1] . ' &nbsp;&nbsp;&nbsp; Damage: '. $dragonBreathDamage  . ' &nbsp;&nbsp;&nbsp; Shape: ' . $dragonBreathArray[3];
+
+if($martialSecondBreathBonus === 1)
+{
+	
+	echo '<br/><br/>Breath: ' . $dragonBreathArray2[0] . ' &nbsp;&nbsp;&nbsp; Save: '. $dragonBreathSave2 .  $dragonBreathArray2[1] . ' &nbsp;&nbsp;&nbsp; Damage: '. $dragonBreathDamage2  . ' &nbsp;&nbsp;&nbsp; Shape: ' . $dragonBreathArray2[3];
+}
+
+?>
+</span>
+
+
+<span id="dragonBreathMessage">
+<?php
+
+echo $dragonBreathMessage . $dragonBreathMessage2;
+
+?>
+</span>
+
+
 
 
 <span id="spellLabelLevel1">
@@ -346,6 +416,26 @@ echo $dragonDailyBreath;
 
 ?>
 </span>
+
+
+
+
+<span id="dragonMartialPowers">
+<?php
+
+	foreach($martialPowerArrayNumber as $martialPower)
+	{
+		$martialName = getDragonMartialPowersName($martialPower);
+		$martialDesc = getDragonMartialPowersDesc ($martialPower, $dragonHD);
+
+		echo '<span class="martialNameBold">' . $martialName . '</span> ' . $martialDesc . '<br/><br/>';
+
+	}
+
+?>
+</span>
+
+
 
 <script>
       

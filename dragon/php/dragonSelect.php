@@ -298,4 +298,27 @@ function getAttackBonus ($hd, $size)
 
 }
 
+function getDragonAlignment()
+{
+    $choice = rand(1, 3);
+
+    if($choice === 1)
+    {
+        return 'Lawful';
+    }
+    else if($choice === 2)
+    {
+        return 'Neutral';
+    }
+    else if($choice === 3)
+    {
+        return 'Chaotic';
+    }
+    else
+    {
+        return '99999999999';
+    }
+
+}
+
 ?>

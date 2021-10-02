@@ -22,6 +22,15 @@ body{
     font-weight: bold;
 }
 
+
+#alignment{
+    position:absolute;
+    top: 150px;
+    left: 495px;
+	font-size: 0.8em;
+    font-weight: bold;
+}
+
 #dragonSpeed{
     position:absolute;
     top: 235px;
@@ -37,6 +46,7 @@ body{
 	font-size: 0.8em;
     font-weight: bold;
 }
+
 
 
 #dragonAge{
@@ -62,6 +72,24 @@ body{
     left: 45px;
 	font-size: 0.7em;
     font-weight: bold;
+}
+
+#dragonBreath{
+    position:absolute;
+    top: 330px;
+    left: 290px;
+	font-size: 0.7em;
+    font-weight: bold;
+    width: 420px;
+}
+
+
+#dragonBreathMessage{
+    position:absolute;
+    top: 490px;
+    left: 280px;
+	font-size: 0.5em;
+    width: 440px;
 }
 
 
@@ -200,5 +228,18 @@ body{
 	font-size: 0.7em;
     font-weight: bold;
     width: 450px;
+}
+
+
+#dragonMartialPowers{
+    position:absolute;
+    top: 790px;
+    left: 30px;
+	font-size: 0.7em;
+    width: 430px;
+}
+
+.martialNameBold{
+    font-weight: bold;
 }
 
