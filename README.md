@@ -7,6 +7,13 @@ Designed with PHP, the Dungeon Crawl Classics Random Dragon Generator generates 
 
 
 
+
+Update 1.05: 2021-10-03
+
+An updated character sheet (dragon.png) added.  Updated existing files to add more functionality.
+
+
+
 Update 1.04: 2021-10-02
 
 New file (dragonPowers.php) added.  Updated existing files to add more functionality.
