@@ -16,8 +16,8 @@ body{
 
 #dragonType{
     position:absolute;
-    top: 70px;
-    left: 180px;
+    top: 125px;
+    left: 100px;
 	font-size: 1.1em;
     font-weight: bold;
 }
@@ -25,7 +25,7 @@ body{
 
 #alignment{
     position:absolute;
-    top: 150px;
+    top: 185px;
     left: 495px;
 	font-size: 0.8em;
     font-weight: bold;
@@ -33,7 +33,7 @@ body{
 
 #dragonSpeed{
     position:absolute;
-    top: 235px;
+    top: 245px;
     left: 100px;
 	font-size: 0.8em;
     font-weight: bold;
@@ -41,7 +41,7 @@ body{
 
 #dragonDailyBreath{
     position:absolute;
-    top: 235px;
+    top: 245px;
     left: 350px;
 	font-size: 0.8em;
     font-weight: bold;
@@ -51,7 +51,7 @@ body{
 
 #dragonAge{
     position:absolute;
-    top: 235px;
+    top: 245px;
     left: 465px;
 	font-size: 0.8em;
     font-weight: bold;
@@ -235,7 +235,16 @@ body{
     position:absolute;
     top: 790px;
     left: 30px;
-	font-size: 0.7em;
+	font-size: 0.55em;
+    width: 430px;
+}
+
+
+#dragonUniquePowers{
+    position:absolute;
+    top: 790px;
+    left: 490px;
+	font-size: 0.55em;
     width: 430px;
 }
 

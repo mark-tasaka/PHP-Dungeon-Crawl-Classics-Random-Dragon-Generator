@@ -62,6 +62,10 @@ $martialRefBonus = getReflexBonusMartial($martialPowerArrayNumber);
 $martialSecondBreathBonus = getAddBreathMartial($martialPowerArrayNumber);
 
 
+$uniquePowerArrayNumber = array();
+$uniquePowerArrayNumber = getUniquePowersNumbers($dragonHD);
+
+
 $dragonHitPoints = getHitPoints ($dragonAge, $dragonHD);
 
 $dragonAC = getArmourClass ($dragonAge, $dragonHD);
@@ -399,13 +403,7 @@ echo $dragonSpeed;
 ?>
 </span>
 
-<span id="spellRoll">
-<?php
 
-echo $spellRoll;
-
-?>
-</span>
 
 
 
@@ -435,6 +433,21 @@ echo $dragonDailyBreath;
 ?>
 </span>
 
+
+<span id="dragonUniquePowers">
+<?php
+
+	foreach($uniquePowerArrayNumber as $uniquePower)
+	{
+		$uniqueName = getDragonUniquePowersName($uniquePower);
+		$uniqueDesc = getDragonUniquePowersNameDesc ($uniquePower, $dragonHD, $dragonRef);
+
+		echo '<span class="martialNameBold">' . $uniqueName . '</span> ' . $uniqueDesc . '<br/><br/>';
+
+	}
+
+?>
+</span>
 
 
 <script>
