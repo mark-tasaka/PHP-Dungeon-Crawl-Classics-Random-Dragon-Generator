@@ -27,6 +27,35 @@ include 'php/dragonSelect.php';
 include 'php/dragonSpells.php';
 include 'php/dragonBreath.php';
 include 'php/dragonPowers.php';
+include 'php/dragonNames.php';
+
+        
+if(isset($_POST["theSex"]))
+{
+	$dragonSex = $_POST["theSex"];
+
+}
+
+$sexOfDragon = getSex($dragonSex);
+
+if(isset($_POST["theGivenName"]))
+{
+	$givenName = $_POST["theGivenName"];
+
+}
+
+if($givenName == '100')
+{
+	$dragonName = rand(0, 49);
+}
+else
+{
+	$dragonName = $givenName;
+}
+
+$genderDragonName = getNameGender($sexOfDragon);
+
+$theDragonName = getName($dragonName, $genderDragonName);
 
 
 if(isset($_POST["theDragonSize"]))
@@ -143,6 +172,24 @@ echo $theDragonSize . ' ' . $dragonAppearance . ' Dragon';
 ?>
 </span>
 
+
+<span id="name">
+<?php
+
+echo $theDragonName;
+
+?>
+</span>
+           
+
+<span id="sex">
+<?php
+
+echo $sexOfDragon;
+
+?>
+</span>
+           
 
 <span id="alignment">
 <?php
