@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>DCC Dragon</title>
+<title>Dungeon Crawl Classics Dragon</title>
  
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     
@@ -53,9 +53,32 @@ else
 	$dragonName = $givenName;
 }
 
+
+$dragonSheet = 'dragon.png';
+
+if(isset($_POST['theCheckBoxCustomName']) && $_POST['theCheckBoxCustomName'] == 1) 
+{
+	$dragonName = 200;
+	$sexOfDragon = '';
+	$dragonSheet = 'dragonA.png';
+
+} 
+
 $genderDragonName = getNameGender($sexOfDragon);
 
 $theDragonName = getName($dragonName, $genderDragonName);
+
+
+        
+if(isset($_POST["theCharacterName"]))
+{
+	$theDragonEnterName = $_POST["theCharacterName"];
+
+}
+else
+{
+	$theDragonEnterName = '';
+}
 
 
 if(isset($_POST["theDragonSize"]))
@@ -176,7 +199,7 @@ echo $theDragonSize . ' ' . $dragonAppearance . ' Dragon';
 <span id="name">
 <?php
 
-echo $theDragonName;
+echo $theDragonName . $theDragonEnterName;
 
 ?>
 </span>
@@ -499,7 +522,7 @@ echo $dragonDailyBreath;
 
 <script>
       
-  let imgData = "images/dragon.png";
+  let imgData = "images/" + '<?php echo $dragonSheet ?>';
      
        $("#sheet").attr("src", imgData);
        
