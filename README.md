@@ -3,7 +3,19 @@ Designed with PHP, the Dungeon Crawl Classics Random Dragon Generator generates 
 
 ------------------
 
+Live version of the Dungeon Crawl Classics Random Dragon Generator available at:
 
+https://www.tasaka-games.com/greenleaf/more/dragon/
+
+
+
+-------------------
+
+
+
+Update 1.07: 2021-10-10
+
+The completed iteration of the DCC Dragon Generator added.  As well, link to a live version of the Dragon Generator added.
 
 
 Update 1.06: 2021-10-07
